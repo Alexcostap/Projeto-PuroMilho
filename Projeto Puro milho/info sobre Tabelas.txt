@@ -1,0 +1,34 @@
+tabela vendedor
+	-id
+	-nome
+	
+tabela saída
+	-id
+	-NomeVendedor
+	-qtdMilho
+	-qtdCanjicaPequena
+	-qtdCanjicaGrande
+	-qtdPamonha
+	-qtdBoloMilho
+	-qtdBoloMacaxeira
+	-qtdPeDeMoleque
+	
+tabela retorno
+	-id
+	-NomeVendedor
+	-qtdMilho
+	-qtdCanjicaPequena		CREATE TABLE `puromilho`.`retorno` (`id` INT(11) NOT NULL AUTO_INCREMENT , `nomeVendedor` VARCHAR(40) NOT NULL , `qtdMilho` INT(3) NOT NULL , `qtdCanjicaPequena` INT(3) NOT NULL , `qtdCanjicaGrande` INT(3) NOT NULL , `qtdPamonha` INT(3) NOT NULL , `qtdBoloMilho` INT(3) NOT NULL , `qtdBoloMacaxeira` INT(3) NOT NULL , `qtdPeDeMoleque` INT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+	-qtdCanjicaGrande
+	-qtdPamonha
+	-qtdBoloMilho
+	-qtdBoloMacaxeira
+	-qtdPeDeMoleque
+tabela valores
+	-id
+	-vlrMilho
+	-vlrCanjicaPequena
+	-vlrCanjicaGrande	CREATE TABLE `puromilho`.`valores` (`id` INT(11) NOT NULL AUTO_INCREMENT , `vlrMilho` FLOAT(3) NOT NULL , `vlrCanjicaPequena` FLOAT(3) NOT NULL , `vlrCanjicaGrande` FLOAT(3) NOT NULL , `vlrPamonha` FLOAT(3) NOT NULL , `vlrBoloMilho` FLOAT(3) NOT NULL , `vlrBoloMacaxeira` FLOAT(3) NOT NULL , `vlrPeDeMoleque` FLOAT(3) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+	-vlrPamonha
+	-vlrBoloMilho
+	-vlrBoloMacaxeira
+	-vlrPeDeMoleque
