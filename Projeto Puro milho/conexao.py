@@ -11,12 +11,16 @@ if conexao.is_connected():
 else:
     print('Não conectou')
 
-inserir = """INSERT INTO 
-             `vendedor` (`nomeVendedor`) 
-             VALUES ('Arielle Lima')"""
-cursor.execute(inserir)
-conexao.commit()
+# inserir = """INSERT INTO 
+#             `vendedor` (`nomeVendedor`) 
+#             VALUES ('Arielle Lima')"""
+# cursor.execute(inserir)
+# conexao.commit()
+# select = """select * from vendedor"""
+# cursor.execute(select)
+# retornoSelect = cursor.fetchall()[0]
 
+#print(retornoSelect)
 
 
 
