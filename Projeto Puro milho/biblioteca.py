@@ -1,6 +1,6 @@
 from conexao import conectar
 # Query simples para resgatar preços dos produtos no banco  
-# Trás um array com cada valor destinado a uma variavem
+# Trás um array com cada valor destinado a uma variavel
 def importarPrecos():
     conexao = conectar()
     cursor = conexao.cursor()
@@ -17,8 +17,9 @@ def importarPrecos():
 
     return milho,canjicaPequena,canjicaGrande,pamonha,boloMilho,boloMacaxeira,peDeMoleque
 
-# Função para calcular o valor total em R$ que saiu da loja.
-def saida(qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBoloMilho, qtdBoloMacaxeira, qtdPeDeMoleque):
+
+# Função para calcular o valor total em R$ que saiu da loja e fazer o insert no banco de dados.
+def saida(nomeVendedor, qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBoloMilho, qtdBoloMacaxeira, qtdPeDeMoleque):
     milho,canjicaPequena,canjicaGrande,pamonha,boloMilho,boloMacaxeira,peDeMoleque = importarPrecos()
     
     valorMilhoCozido = qtdMilhoCozido * milho
@@ -31,11 +32,22 @@ def saida(qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBo
     
     valorTotalSaida = (valorMilhoCozido + valorCanjicaPequena + valorCanjicaGrande +
                        valorPamonha + valorBoloMilho + valorBoloMacaxeira + valorPeDeMoleque)
-    
+#   Fazer o insert na tabela 'saida'.
+    conexao = conectar()
+    cursor = conexao.cursor()
+    inserir = f"""INSERT INTO `saida` (`id`, `nomeVendedor`, `qtdMilho`, 
+                                    `qtdCanjicaPequena`, `qtdCanjicaGrande`, 
+                                    `qtdPamonha`, `qtdBoloMilho`, `qtdBoloMacaxeira`, 
+                                    `qtdPeDeMoleque`,`valorTotalSaida`) VALUES (NULL, '{nomeVendedor}', 
+                                    '{qtdMilhoCozido}', '{qtdCanjicaPequena}', '{qtdCanjicaGrande}',
+                                    '{qtdPamonha}', '{qtdBoloMilho}','{qtdBoloMacaxeira}', 
+                                    '{qtdPeDeMoleque}','{valorTotalSaida}')"""
+    cursor.execute(inserir)
+    conexao.commit()
     return valorTotalSaida
 
-# Função para calcular o valor total em R$ que retornou da loja.
-def retorno(qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBoloMilho, qtdBoloMacaxeira, qtdPeDeMoleque):
+# Função para calcular o valor total em R$ que retornou para loja e fazer o insert no banco de dados.
+def retorno(nomeVendedor, qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBoloMilho, qtdBoloMacaxeira, qtdPeDeMoleque):
     milho,canjicaPequena,canjicaGrande,pamonha,boloMilho,boloMacaxeira,peDeMoleque = importarPrecos()
     
     valorMilhoCozido = qtdMilhoCozido * milho
@@ -49,9 +61,30 @@ def retorno(qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtd
     valorTotalRetorno = (valorMilhoCozido + valorCanjicaPequena + valorCanjicaGrande +
                        valorPamonha + valorBoloMilho + valorBoloMacaxeira + valorPeDeMoleque)
     
-    return valorTotalRetorno
+    #   Fazer o insert na tabela 'retorno'.
+    conexao = conectar()
+    cursor = conexao.cursor()
+    inserir = f"""INSERT INTO `retorno` (`id`, `nomeVendedor`, `qtdMilho`, 
+                                    `qtdCanjicaPequena`, `qtdCanjicaGrande`, 
+                                    `qtdPamonha`, `qtdBoloMilho`, `qtdBoloMacaxeira`, 
+                                    `qtdPeDeMoleque`,`valorTotalRetorno`) VALUES (NULL, '{nomeVendedor}', 
+                                    '{qtdMilhoCozido}', '{qtdCanjicaPequena}', '{qtdCanjicaGrande}',
+                                    '{qtdPamonha}', '{qtdBoloMilho}','{qtdBoloMacaxeira}', 
+                                    '{qtdPeDeMoleque}','{valorTotalRetorno}')"""
+    cursor.execute(inserir)
+    conexao.commit()
+    
+    selectSaida = f"""SELECT valorTotalSaida FROM `saida` WHERE nomeVendedor = '{nomeVendedor}' ORDER BY id DESC LIMIT 1;"""
+    cursor.execute(selectSaida)
+    valorTotalSaida = cursor.fetchone()[0]
+    valorFinal = valorTotalSaida - valorTotalRetorno
+    comissao = (valorFinal * 30) / 100
+    return valorTotalRetorno,valorFinal, comissao
 
-
+def vendaTotal():
+    conexao = conectar()
+    cursor = conexao.cursor()
+    selectSaida = """SELECT * FROM `saida` WHERE nomeVendedor = 'Alex Costa' ORDER BY id DESC LIMIT 1;"""
 # Função para fazer update dos preços na tabela 'Valores' 
 def cadastroPreco(vlrMilho,vlrCanjicaPequena,vlrCanjicaGrande,
                   vlrPamonha,vlrBoloMilho,vlrBoloMacaxeira,vlrPeDeMoleque):
@@ -75,3 +108,4 @@ def cadastroPreco(vlrMilho,vlrCanjicaPequena,vlrCanjicaGrande,
     finally:
         cursor.close()
         conexao.close()
+

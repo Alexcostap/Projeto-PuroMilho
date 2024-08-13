@@ -1,7 +1,7 @@
 from biblioteca import saida,retorno
 
 
-saida = retorno(1,1,1,1,1,1,1)
+saida = retorno('Alex Costa',0,0,0,0,0,0,0)
 print(saida)
 # qtdSaidaMilhoCozido = int(input("Insira a quatidade de milho Cozido que está saindo: "))
 # qtdSaidaPamonha = int(input("Insira a quatidade de Pamonha que está saindo: "))
@@ -18,4 +18,4 @@ print(saida)
 # comissao = (valorFinal * 30) / 100
 
 # print(valorFinal)
-# print(comissao)
+# print(comissao) 
