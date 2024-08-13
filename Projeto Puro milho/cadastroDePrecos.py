@@ -1,26 +1,15 @@
-#from conexao import *
 from biblioteca import cadastroPreco
 #           Input dos valores a serem alterados na tabela 
-vlrMilho = 2#float(input("Informe o valor do MILHO COZIDO: "))
-vlrCanjicaPequena = 2#float(input("Informe o valor do CANJICA PEQUENA: "))
-vlrCanjicaGrande = 3#float(input("Informe o valor do CANJICA GRANDE: "))
-vlrPamonha = 4#float(input("Informe o valor do PAMONHA: "))
-vlrBoloMilho = 2#float(input("Informe o valor do BOLO DE MILHO: "))
-vlrBoloMacaxeira = 4#float(input("Informe o valor do BOLO DE MACAXEIRA: "))
-vlrPeDeMoleque = 3#float(input("Informe o valor do PÉ DE MOLEQUE: "))
+vlrMilho = float(input("Informe o valor do MILHO COZIDO: "))
+vlrCanjicaPequena = float(input("Informe o valor do CANJICA PEQUENA: "))
+vlrCanjicaGrande = float(input("Informe o valor do CANJICA GRANDE: "))
+vlrPamonha = float(input("Informe o valor do PAMONHA: "))
+vlrBoloMilho = float(input("Informe o valor do BOLO DE MILHO: "))
+vlrBoloMacaxeira = float(input("Informe o valor do BOLO DE MACAXEIRA: "))
+vlrPeDeMoleque = float(input("Informe o valor do PÉ DE MOLEQUE: "))
 
-
+# Chamada da função de cadastrar os preços no banco
 alterarPreco = cadastroPreco(vlrMilho,vlrCanjicaPequena,vlrCanjicaGrande,
                   vlrPamonha,vlrBoloMilho,vlrBoloMacaxeira,vlrPeDeMoleque)
-
+# Exibir retorno da função
 print(alterarPreco)
-# inserir = f"""UPDATE `valores` SET `vlrMilho` = '{vlrMilho}', 
-#             `vlrCanjicaPequena` = '{vlrCanjicaPequena}', 
-#             `vlrCanjicaGrande` = '{vlrCanjicaGrande}', 
-#             `vlrPamonha` = '{vlrPamonha}', 
-#             `vlrBoloMilho` = '{vlrBoloMilho}', 
-#             `vlrBoloMacaxeira` = '{vlrBoloMacaxeira}', 
-#             `vlrPeDeMoleque` = '{vlrPeDeMoleque}' 
-#              WHERE `valores`.`id` = 1"""
-# cursor.execute(inserir)
-# conexao.commit()
