@@ -1,0 +1,12 @@
+
+
+
+       	*Levantamento de Requisitos para o sistema*
+
+
+•Contabilizar a quantidade de produtos que saem.
+•Contabilizar a quantidade de produtos que retornas.
+•Fazer o cálculo do valor total de saída - valor de retorno.
+•Fazer o cálculo da comissão de 30% com base no valor total.
+•Funcionar em dispositivo móvel pois não possuem desktop.
+•Funcionar em ambiente local.

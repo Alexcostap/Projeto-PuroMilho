@@ -44,7 +44,7 @@ def saida(nomeVendedor, qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtd
                                     '{qtdPeDeMoleque}','{valorTotalSaida}')"""
     cursor.execute(inserir)
     conexao.commit()
-    return valorTotalSaida
+    return nomeVendedor, valorTotalSaida
 
 # Função para calcular o valor total em R$ que retornou para loja e fazer o insert no banco de dados.
 def retorno(nomeVendedor, qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, qtdPamonha, qtdBoloMilho, qtdBoloMacaxeira, qtdPeDeMoleque):
@@ -79,7 +79,7 @@ def retorno(nomeVendedor, qtdMilhoCozido, qtdCanjicaPequena, qtdCanjicaGrande, q
     valorTotalSaida = cursor.fetchone()[0]
     valorFinal = valorTotalSaida - valorTotalRetorno
     comissao = (valorFinal * 30) / 100
-    return valorTotalRetorno,valorFinal, comissao
+    return valorTotalRetorno,valorFinal, comissao, nomeVendedor
 
 def vendaTotal():
     conexao = conectar()

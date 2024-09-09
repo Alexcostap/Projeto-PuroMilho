@@ -1,0 +1,817 @@
+ScreenManager:
+    Menu:
+    TelaAjustePreco:
+    TelaRetorno:
+    TelaSaida:
+
+<Menu>:
+    name: 'Menu'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Button:
+            text: 'Inserir a saída'
+            on_press: root.manager.current = 'Saida'
+        
+        Button:
+            text: 'Inserir o retorno'
+            on_press: root.manager.current = 'Retorno'
+        
+        Button:
+            text: 'Ajudar o preço dos itens'
+            on_press: root.manager.current = 'Ajuste de Preço'
+<TelaAjustePreco>:
+    name: 'Ajuste de Preço'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: 'Tela de Ajuste de Preço'
+            font_size: 24
+            size_hint_y: None
+            height: '50dp'
+            color: 1, 1, 1, 1  # Cor do texto (branco)
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.6, 0.8, 1  # Cor de fundo (azul)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        
+        Label:
+            id: resultado_label
+            text: ''
+            size_hint_y: None
+            height: 50
+            color: 0, 1, 0, 1  # Cor do texto (Verde)
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Milho Cozido:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrMilho
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Pequena:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrCanjicaPequena
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Grande:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrCanjicaGrande
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pamonha:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrPamonha
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Milho:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrBoloMilho
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Macaxeira:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrBoloMacaxeira
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pé de Moleque:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: vlrPeDeMoleque
+                input_filter: 'float'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio
+
+        Button:
+            text: 'Ajustar Preço'
+            size_hint_y: None
+            height: 40
+            on_press: root.inputs_AjustePreco()        
+        Button:
+            text: 'Voltar ao Menu'
+            on_press: root.manager.current = 'Menu'
+
+<TelaRetorno>:
+    name: 'Retorno'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+        
+        Label:
+            text: 'Tela de Retorno'
+            font_size: 24
+            size_hint_y: None
+            height: '50dp'
+            color: 1, 1, 1, 1  # Cor do texto (branco)
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.6, 0.8, 1  # Cor de fundo (azul)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        Label:
+            id: resultado_label
+            text: ''
+            size_hint_y: None
+            height: 50
+            color: 0, 1, 0, 1  # Cor do texto (Verde)
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  
+            spacing: 10
+
+            Label:
+                text: 'Nome do colaborador:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: nome_input
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1 
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Milho Cozido:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: milhoQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Pequena:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: canjicaPequenaQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Grande:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: canjicaGrandeQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pamonha:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: pamonhaQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Milho:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: boloMilhoQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Macaxeira:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: boloMacaxeiraQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pé de Moleque:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: peDeMolequeQtdRetorno
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio
+
+        Button:
+            text: 'Enviar'
+            size_hint_y: None
+            height: 40
+            on_press: root.inputs_retorno()
+        Button:
+            text: 'Voltar ao menu'
+            on_press: root.manager.current = 'Menu'
+
+<TelaSaida>
+    name: 'Saida'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: 'Tela de Saída'
+            font_size: 24
+            size_hint_y: None
+            height: '50dp'
+            color: 1, 1, 1, 1  # Cor do texto (branco)
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.6, 0.8, 1  
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        
+        Label:
+            id: resultado_label
+            text: ''
+            size_hint_y: None
+            height: 50
+            color: 0, 1, 0, 1  # Cor do texto (Verde)
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  
+            spacing: 10
+
+            Label:
+                text: 'Nome do colaborador:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: nome_input
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1 
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Milho Cozido:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: milhoQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Pequena:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: canjicaPequenaQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Canjica Grande:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: canjicaGrandeQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pamonha:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: pamonhaQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Milho:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: boloMilhoQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Bolo de Macaxeira:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: boloMacaxeiraQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio        
+
+        BoxLayout:
+            size_hint_y: None
+            height: 40  # Altura do Label + TextInput
+            spacing: 10
+
+            Label:
+                text: 'Pé de Moleque:'
+                size_hint_x: 0.25   
+                size_hint_y: None
+                height: 30  
+                color: 0, 0, 1, 1  
+
+            TextInput:
+                id: peDeMolequeQtdSaida
+                input_filter: 'int'
+                multiline: False
+                size_hint_x: 0.75  
+                size_hint_y: None
+                height: 40 
+                background_color: 1, 1, 1, 1  
+                foreground_color: 0, 0, 0, 1  
+                canvas.before:  
+                    Color:
+                        rgba: 0,0,0,1  
+                    Line:
+                        width: 1.5  
+                        rectangle: (self.x, self.y, self.width, self.height)
+                halign: 'center'  # Alinha o texto à direita
+                valign: 'middle'  # Alinha o texto verticalmente ao meio
+
+        Button:
+            text: 'Enviar'
+            size_hint_y: None
+            height: 40
+            on_press: root.inputs_saida()
+        Button:
+            text: 'Voltar ao menu'
+            on_press: root.manager.current = 'Menu'
