@@ -108,4 +108,3 @@ def cadastroPreco(vlrMilho,vlrCanjicaPequena,vlrCanjicaGrande,
     finally:
         cursor.close()
         conexao.close()
-
